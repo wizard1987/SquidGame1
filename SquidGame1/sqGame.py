@@ -9,7 +9,7 @@ game_font = pygame.font.Font('04B_19.ttf',40)
 small_font = pygame.font.Font('04B_19.ttf',10)
 
 bg_surface = pygame.image.load('bk5.png').convert()
-bird_movement = 0.0
+man_movement = 0.0
 man_status = 0 # 0 stand 1 run
 move_speed = 1.0
 move_timer = 10
@@ -17,87 +17,87 @@ move_timer = 10
 otherman_status = 0
 score = 0
 
-bird_run1 = pygame.image.load('man/man_1.png').convert_alpha()
-bird_run2 = pygame.image.load('man/man_2.png').convert_alpha()
-bird_run3 = pygame.image.load('man/man_3.png').convert_alpha()
-bird_run4 = pygame.image.load('man/man_4.png').convert_alpha()
-bird_run5 = pygame.image.load('man/man_5.png').convert_alpha()
-bird_run6 = pygame.image.load('man/man_6.png').convert_alpha()
-bird_run7 = pygame.image.load('man/man_7.png').convert_alpha()
+man_run1 = pygame.image.load('man/man_1.png').convert_alpha()
+man_run2 = pygame.image.load('man/man_2.png').convert_alpha()
+man_run3 = pygame.image.load('man/man_3.png').convert_alpha()
+man_run4 = pygame.image.load('man/man_4.png').convert_alpha()
+man_run5 = pygame.image.load('man/man_5.png').convert_alpha()
+man_run6 = pygame.image.load('man/man_6.png').convert_alpha()
+man_run7 = pygame.image.load('man/man_7.png').convert_alpha()
 
 
 
-pipe_surface1 = pygame.image.load('man/man_1.png').convert_alpha()
-pipe_surface2 = pygame.image.load('man/man_2.png').convert_alpha()
-pipe_surface3 = pygame.image.load('man/man_3.png').convert_alpha()
-pipe_surface4 = pygame.image.load('man/man_4.png').convert_alpha()
-pipe_surface5 = pygame.image.load('man/man_5.png').convert_alpha()
-pipe_surface6 = pygame.image.load('man/man_6.png').convert_alpha()
-pipe_surface7 = pygame.image.load('man/man_7.png').convert_alpha()
-pipe_frames = [bird_run1,bird_run2,bird_run3,bird_run4,bird_run5,bird_run6,bird_run7]
-pipe_index = 0
-PIPEFLAP = pygame.USEREVENT + 4
-pygame.time.set_timer(PIPEFLAP,20)
+pman_surface1 = pygame.image.load('man/man_1.png').convert_alpha()
+pman_surface2 = pygame.image.load('man/man_2.png').convert_alpha()
+pman_surface3 = pygame.image.load('man/man_3.png').convert_alpha()
+pman_surface4 = pygame.image.load('man/man_4.png').convert_alpha()
+pman_surface5 = pygame.image.load('man/man_5.png').convert_alpha()
+pman_surface6 = pygame.image.load('man/man_6.png').convert_alpha()
+pman_surface7 = pygame.image.load('man/man_7.png').convert_alpha()
+pman_frames = [man_run1,man_run2,man_run3,man_run4,man_run5,man_run6,man_run7]
+pman_index = 0
+pmanFLAP = pygame.USEREVENT + 4
+pygame.time.set_timer(pmanFLAP,20)
 
 
-pipe_list = []
+pman_list = []
 
-bigman_run0 = pygame.image.load('girl/girl_0.png').convert_alpha()
-bigman_run1 = pygame.image.load('girl/girl_1.png').convert_alpha()
-bigman_run2 = pygame.image.load('girl/girl_2.png').convert_alpha()
-bigman_run3 = pygame.image.load('girl/girl_3.png').convert_alpha()
-bigman_run4 = pygame.image.load('girl/girl_4.png').convert_alpha()
-bigman_run5 = pygame.image.load('girl/girl_5.png').convert_alpha()
-bigman_run6 = pygame.image.load('girl/girl_6.png').convert_alpha()
+biggirl_run0 = pygame.image.load('girl/girl_0.png').convert_alpha()
+biggirl_run1 = pygame.image.load('girl/girl_1.png').convert_alpha()
+biggirl_run2 = pygame.image.load('girl/girl_2.png').convert_alpha()
+biggirl_run3 = pygame.image.load('girl/girl_3.png').convert_alpha()
+biggirl_run4 = pygame.image.load('girl/girl_4.png').convert_alpha()
+biggirl_run5 = pygame.image.load('girl/girl_5.png').convert_alpha()
+biggirl_run6 = pygame.image.load('girl/girl_6.png').convert_alpha()
 
 
 
-bird_frames = [bird_run1,bird_run2,bird_run3,bird_run4,bird_run5,bird_run6,bird_run7]
-bird_index = 0
-bird_surface = bird_frames[0]
-bird_rect = bird_surface.get_rect(center = (100,700))
-BIRDFLAP = pygame.USEREVENT + 1
+man_frames = [man_run1,man_run2,man_run3,man_run4,man_run5,man_run6,man_run7]
+man_index = 0
+man_surface = man_frames[0]
+man_rect = man_surface.get_rect(center = (100,700))
+manFLAP = pygame.USEREVENT + 1
 pos_x = 100
 pos_y = 700
-pygame.time.set_timer(BIRDFLAP,20)
+pygame.time.set_timer(manFLAP,20)
 light_status = 0
 
 
-bigman_frames = [bigman_run6,bigman_run5,bigman_run4,bigman_run3,bigman_run2,
-bigman_run1,bigman_run0,bigman_run0,bigman_run0,bigman_run1,
-bigman_run2,bigman_run3,bigman_run4,bigman_run5,bigman_run6]
-bigman_index = 0
-bigman_surface = bigman_frames[0]
-bigman_rect = bigman_surface.get_rect(center = (850,100))
-BIGMANFLAP = pygame.USEREVENT + 2
-pygame.time.set_timer(BIGMANFLAP,200)
+biggirl_frames = [biggirl_run6,biggirl_run5,biggirl_run4,biggirl_run3,biggirl_run2,
+biggirl_run1,biggirl_run0,biggirl_run0,biggirl_run0,biggirl_run1,
+biggirl_run2,biggirl_run3,biggirl_run4,biggirl_run5,biggirl_run6]
+biggirl_index = 0
+biggirl_surface = biggirl_frames[0]
+biggirl_rect = biggirl_surface.get_rect(center = (850,100))
+biggirlFLAP = pygame.USEREVENT + 2
+pygame.time.set_timer(biggirlFLAP,200)
 
 gameover_status = 0
 
 score_sound_countdown = 100
 
-def bigman_animation():
-	new_bird = bigman_frames[bigman_index]
-	new_bird_rect = new_bird.get_rect(center = (bigman_rect.centerx,bigman_rect.centery))
-	return new_bird,new_bird_rect
+def biggirl_animation():
+	new_man = biggirl_frames[biggirl_index]
+	new_man_rect = new_man.get_rect(center = (biggirl_rect.centerx,biggirl_rect.centery))
+	return new_man,new_man_rect
 
-def bird_animation():
-	new_bird = bird_frames[bird_index]
-	new_bird_rect = new_bird.get_rect(center = (bird_rect.centerx,bird_rect.centery))
-	return new_bird,new_bird_rect
+def man_animation():
+	new_man = man_frames[man_index]
+	new_man_rect = new_man.get_rect(center = (man_rect.centerx,man_rect.centery))
+	return new_man,new_man_rect
 
-def pipe_animation():
-	new_pipe = pipe_frames[pipe_index]
-	return new_pipe
+def pman_animation():
+	new_pman = pman_frames[pman_index]
+	return new_pman
 
-def pipe_stand():
-	new_pipe = pipe_frames[0]
-	return new_pipe
+def pman_stand():
+	new_pman = pman_frames[0]
+	return new_pman
 
-def bird_stand():
-	new_bird = bird_frames[0]
-	new_bird_rect = new_bird.get_rect(center = (bird_rect.centerx,bird_rect.centery))
-	return new_bird,new_bird_rect
+def man_stand():
+	new_man = man_frames[0]
+	new_man_rect = new_man.get_rect(center = (man_rect.centerx,man_rect.centery))
+	return new_man,new_man_rect
 
 
 def redlight_display(game_state):
@@ -133,22 +133,22 @@ def gameover_display(gameover_status):
 
 
 
-def move_pipes(pipes):
-    for pipe in pipes:
+def move_pmans(pmans):
+    for pman in pmans:
         if otherman_status ==1 :
-            pipe.centerx += 2
-            pipe.centery -= 1
+            pman.centerx += 2
+            pman.centery -= 1
 
-        if pipe.centery < -10:
-            pipes.remove(pipe)
-    return pipes
+        if pman.centery < -10:
+            pmans.remove(pman)
+    return pmans
             
 
 
-def create_pipe():
+def create_pman():
     if gameover_status ==0 :
-        bottom_pipe = pipe_frames[0].get_rect(center = (randrange(1024)-600,800+randrange(500)))
-        return bottom_pipe
+        bottom_pman = pman_frames[0].get_rect(center = (randrange(1024)-600,800+randrange(500)))
+        return bottom_pman
 
 
 flap_sound = pygame.mixer.Sound('coin.wav')
@@ -156,8 +156,8 @@ death_sound = pygame.mixer.Sound('bomb2.wav')
 song_sound = pygame.mixer.Sound('song.wav')
 
 
-SPAWNPIPE = pygame.USEREVENT
-pygame.time.set_timer(SPAWNPIPE,1200)
+SPAWNpman = pygame.USEREVENT
+pygame.time.set_timer(SPAWNpman,1200)
 
 
 gameover_status =0 
@@ -166,7 +166,7 @@ pygame.display.set_caption('Squid Game')
 
 while True:
 
-    if ((bigman_index>=5) & (bigman_index<=10)):
+    if ((biggirl_index>=5) & (biggirl_index<=10)):
         light_status = 1
         otherman_status = 0
     else :
@@ -189,55 +189,55 @@ while True:
             if (event.key == pygame.K_SPACE) &( gameover_status !=0 ):
                 man_status = 0
                 gameover_status = 0 
-                pipe_list = [] 
-                bird_rect.centerx = 100
-                bird_rect.centery = 700
+                pman_list = [] 
+                man_rect.centerx = 100
+                man_rect.centery = 700
                 pos_x = 100
                 pos_y = 700
 
 
 
-        elif event.type == SPAWNPIPE:
+        elif event.type == SPAWNpman:
             if ((otherman_status == 1) & (gameover_status == 0)):
                 for num in range(0,10): 
-                    pipe_list.append(create_pipe())
-                print("pile count = ",len(pipe_list))
+                    pman_list.append(create_pman())
+                print("pile count = ",len(pman_list))
 
 
-        elif event.type == PIPEFLAP:
-            if pipe_index < 6 :
-                pipe_index = pipe_index + 1
+        elif event.type == pmanFLAP:
+            if pman_index < 6 :
+                pman_index = pman_index + 1
             else:
-                pipe_index = 0
+                pman_index = 0
 
             if otherman_status==1 :
-                pipe_surface = pipe_animation()
+                pman_surface = pman_animation()
             else:
-                pipe_surface = pipe_stand()
+                pman_surface = pman_stand()
             
 
 
-        elif event.type == BIRDFLAP:
-            if bird_index < 6 :
-                bird_index = bird_index + 1
+        elif event.type == manFLAP:
+            if man_index < 6 :
+                man_index = man_index + 1
             else:
-                bird_index = 0
+                man_index = 0
             if man_status==1 :
-                bird_surface,bird_rect = bird_animation()
+                man_surface,man_rect = man_animation()
             else:
-                bird_surface,bird_rect = bird_stand()
+                man_surface,man_rect = man_stand()
 
 
 
-        elif event.type == BIGMANFLAP:
+        elif event.type == biggirlFLAP:
             if gameover_status == 0 :
-                if bigman_index < 14 :
-                    bigman_index = bigman_index + 1
+                if biggirl_index < 14 :
+                    biggirl_index = biggirl_index + 1
                 else:
-                    bigman_index = 0
+                    biggirl_index = 0
                     song_sound.play()
 
-            bigman_surface,bigman_rect = bigman_animation()
+            biggirl_surface,biggirl_rect = biggirl_animation()
 
 
 
@@ -249,22 +249,22 @@ while True:
         screen.blit(text_surface,text_rect)
 
 
-        screen.blit(bird_surface, bird_rect)
+        screen.blit(man_surface, man_rect)
 
 
-        screen.blit(bigman_surface, bigman_rect)
-         # Pipes
-        pipe_list = move_pipes(pipe_list)
-        ##pipe_list = remove_pipes(pipe_list)
+        screen.blit(biggirl_surface, biggirl_rect)
+         # pmans
+        pman_list = move_pmans(pman_list)
+        ##pman_list = remove_pmans(pman_list)
 
-        for pipe in pipe_list:
-            screen.blit(pipe_surface,pipe)
+        for pman in pman_list:
+            screen.blit(pman_surface,pman)
 
         if (man_status == 1):
             pos_x = pos_x + move_speed
             pos_y = pos_y - move_speed/2
-            bird_rect.centerx = pos_x
-            bird_rect.centery = pos_y
+            man_rect.centerx = pos_x
+            man_rect.centery = pos_y
 
         if ((man_status ==1)and (light_status==1)) :
             gameover_status = 1
